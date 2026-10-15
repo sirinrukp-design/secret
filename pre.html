@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy 6-Month Anniversary</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #fff8f3;
+      --rose: #a83e60;
+      --deep: #44283e;
+      --muted: #795c6b;
+    }
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      width: 100%;
+      min-height: 100vh;
+      margin: 0;
+      background: var(--cream);
+      color: var(--deep);
+      font-family: "Trebuchet MS", "Noto Sans Thai", "Segoe UI", sans-serif;
+      display: flex;
+      flex-direction: column;
+    }
+    button {
+      font: inherit;
+      cursor: pointer;
+    }
+    button:focus-visible {
+      outline: 3px solid #65324f;
+      outline-offset: 4px;
+    }
+    [hidden] {
+      display: none !important;
+    }
+    .page-shell {
+      position: relative;
+      width: 100%;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: clamp(16px, 3vw, 32px);
+      overflow: hidden;
+      background: radial-gradient(circle at 8% 9%, #ffe1e7 0, transparent 34%), radial-gradient(circle at 94% 66%, #f4e1eb 0, transparent 37%), var(--cream);
+    }
+    .page-shell::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: .23;
+      background-image: radial-gradient(#b85b78 .7px, transparent .7px);
+      background-size: 24px 24px;
+    }
+    .shell-inner {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 760px;
+      margin: auto;
+    }
+    .screen {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px 0;
+    }
+    .screen:not([hidden]) {
+      animation: arrive .48s ease both;
+    }
+    @keyframes arrive {
+      from { opacity: 0; transform: translateY(13px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .card {
+      width: 100%;
+      padding: clamp(20px, 4vw, 42px);
+      border: 1px solid #efd9da;
+      border-radius: clamp(20px, 4vw, 32px);
+      background: #fffdfa;
+      box-shadow: 0 20px 50px #6734481a, 0 3px 10px #6734480a;
+      text-align: center;
+    }
+    .eyebrow {
+      display: block;
+      color: var(--rose);
+      font-size: clamp(13px, 1.8vw, 15px);
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    h1, h2, p {
+      margin-top: 0;
+    }
+    h1 {
+      font-size: clamp(26px, 5vw, 34px);
+      font-weight: 700;
+      color: var(--deep);
+      margin-bottom: 10px;
+    }
+    h2 {
+      font-size: clamp(20px, 4vw, 24px);
+      font-weight: 700;
+      color: var(--deep);
+      margin-bottom: 12px;
+    }
+    .subtitle {
+      color: var(--muted);
+      font-size: clamp(14px, 2vw, 16px);
+      margin-bottom: 15px;
+    }
+    .choices {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: clamp(12px, 2.5vw, 20px);
+      margin: 20px auto 16px;
+      max-width: 580px;
+    }
+    .choice {
+      min-width: 0;
+      padding: clamp(14px, 2.5vw, 20px) 10px 14px;
+      border: 1px solid #efd7dd;
+      border-radius: 20px;
+      background: #fff7f7;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .choice:nth-child(2) {
+      background: #faf0f1;
+    }
+    .choice-art {
+      width: 100%;
+      height: clamp(110px, 20vw, 150px);
+      display: grid;
+      place-items: center;
+      margin-bottom: 8px;
+    }
+    .envelope {
+      width: min(150px, 85%);
+      height: 96px;
+      position: relative;
+      border-radius: 6px 6px 10px 10px;
+      background: #edc8ce;
+      box-shadow: 0 12px 18px #84485822;
+      transform: rotate(-6deg) scale(.85);
+      overflow: hidden;
+    }
+    .envelope::before {
+      content: "";
+      position: absolute;
+      top: -3px;
+      left: 0;
+      width: 100%;
+      height: 70px;
+      background: #fff4e9;
+      clip-path: polygon(0 0, 100% 0, 50% 88%);
+      z-index: 2;
+    }
+    .envelope::after {
+      content: "";
+      position: absolute;
+      inset: 14px 0 0;
+      background: #f9dce0;
+      clip-path: polygon(0 100%, 50% 23%, 100% 100%);
+      z-index: 3;
+    }
+    .seal {
+      position: absolute;
+      z-index: 4;
+      left: calc(50% - 14px);
+      top: 46px;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--rose);
+      color: white;
+      font-size: 14px;
+      display: grid;
+      place-items: center;
+    }
+    .present {
+      position: relative;
+      width: 120px;
+      height: 82px;
+      margin-top: 10px;
+      background: #c95b77;
+      border-radius: 4px 4px 10px 10px;
+      box-shadow: 0 12px 18px #84485826;
+      transform: rotate(4deg) scale(.85);
+    }
+    .present::before {
+      content: "";
+      position: absolute;
+      z-index: 2;
+      left: -2px;
+      top: -14px;
+      width: 124px;
+      height: 18px;
+      background: #eb91a7;
+      border-radius: 6px;
+    }
+    .present::after {
+      content: "";
+      position: absolute;
+      top: -14px;
+      bottom: 0;
+      left: 51px;
+      width: 15px;
+      background: #fbe5c4;
+      z-index: 3;
+      box-shadow: 0 2px 4px #7e304222;
+    }
+    .bow {
+      position: absolute;
+      z-index: 5;
+      top: -42px;
+      left: 18px;
+      width: 84px;
+      height: 56px;
+      filter: drop-shadow(0 4px 4px #6f304033);
+      transform: rotate(-1deg);
+      background: linear-gradient(109deg, transparent 0 44%, #e58aa0 45% 55%, transparent 56%), linear-gradient(71deg, transparent 0 44%, #d8758e 45% 55%, transparent 56%);
+    }
+    .bow::before, .bow::after {
+      content: "";
+      position: absolute;
+      top: 2px;
+      width: 39px;
+      height: 31px;
+      border: 8px solid #e58aa0;
+      background: linear-gradient(145deg, #f7c0ca 0 34%, #d8758e 66% 100%);
+    }
+    .bow::before {
+      left: 1px;
+      border-radius: 76% 34% 58% 46%;
+      transform: rotate(-24deg);
+    }
+    .bow::after {
+      right: 1px;
+      border-radius: 34% 76% 46% 58%;
+      transform: rotate(24deg);
+    }
+    .button {
+      border: 0;
+      border-radius: 100px;
+      padding: clamp(10px, 2vw, 13px) clamp(18px, 3vw, 24px);
+      font-weight: 700;
+      font-size: clamp(13px, 1.8vw, 15px);
+      transition: transform .2s, box-shadow .2s, background .2s;
+      white-space: nowrap;
+    }
+    .button:hover {
+      transform: translateY(-2px);
+    }
+    .primary {
+      background: #a83e60;
+      color: white;
+      box-shadow: 0 8px 18px #a83e6030;
+    }
+    .secondary {
+      background: #f9e8eb;
+      color: #76334e;
+      border: 1px solid #e6c5ce;
+    }
+    .choice .button {
+      width: 100%;
+    }
+    .hint {
+      color: var(--muted);
+      font-size: clamp(13px, 1.8vw, 15px);
+      margin: 0;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .gift-stage {
+      position: relative;
+      height: clamp(250px, 40vw, 320px);
+      width: min(100%, 340px);
+      margin: 0 auto 8px;
+    }
+    .gift-base {
+      position: absolute;
+      left: 22%;
+      right: 22%;
+      bottom: 16px;
+      height: 85px;
+      border-radius: 6px 6px 14px 14px;
+      background: #c85e79;
+      box-shadow: 0 16px 20px #86405425;
+    }
+    .gift-base::after {
+      content: "";
+      position: absolute;
+      left: 45%;
+      width: 10%;
+      height: 100%;
+      background: #ffe5c4;
+    }
+    .bouquet {
+      position: absolute;
+      z-index: 2;
+      width: 220px;
+      height: 270px;
+      left: 50%;
+      bottom: 26px;
+      transform: translateX(-50%) scale(.85);
+      transform-origin: bottom center;
+    }
+    .rose-cluster {
+      position: absolute;
+      z-index: 3;
+      left: 6px;
+      right: 6px;
+      top: 0;
+      height: 160px;
+    }
+    .rose {
+      position: absolute;
+      width: 38px;
+      height: 60px;
+      border-radius: 48% 48% 42% 42%;
+      background: #e85b83;
+      box-shadow: inset 7px 0 8px #ffffff55, inset -8px -6px 10px #b9285d55, 0 8px 12px #5d263733;
+      transform: rotate(var(--tilt, 0deg));
+    }
+    .rose::before, .rose::after {
+      content: "";
+      position: absolute;
+      bottom: 6px;
+      width: 54%;
+      height: 75%;
+      border-radius: 75% 25% 55% 45%;
+      background: inherit;
+    }
+    .rose::before { left: -7px; transform: rotate(-17deg); }
+    .rose::after { right: -7px; transform: scaleX(-1) rotate(-17deg); }
+    .rose:nth-child(2n) { --tilt: -7deg; transform: scale(.85) rotate(var(--tilt)); background: #fffdfb; }
+    .rose:nth-child(3n) { --tilt: 8deg; transform: scale(1.1) rotate(var(--tilt)); }
+    .rose:nth-child(5n) { --tilt: -12deg; transform: scale(.75) rotate(var(--tilt)); }
+    .rose:nth-child(1){left:6px;top:54px}.rose:nth-child(2){left:36px;top:16px}
+    .rose:nth-child(3){left:80px;top:4px}.rose:nth-child(4){left:126px;top:18px}
+    .rose:nth-child(5){left:162px;top:55px}.rose:nth-child(6){left:27px;top:78px}
+    .rose:nth-child(7){left:73px;top:56px}.rose:nth-child(8){left:118px;top:68px}
+    .rose:nth-child(9){left:51px;top:108px}.rose:nth-child(10){left:98px;top:106px}
+    .rose:nth-child(11){left:142px;top:102px}.rose:nth-child(12){left:5px;top:98px}
+    .stems {
+      position: absolute;
+      z-index: 2;
+      left: 6px;
+      right: 6px;
+      top: 40px;
+      height: 200px;
+      pointer-events: none;
+      clip-path: inset(0 0 48px 0);
+    }
+    .stem {
+      position: absolute;
+      top: 0;
+      width: 8px;
+      height: 195px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #285f3c 0%, #4f9860 42%, #214d32 100%);
+      transform-origin: top center;
+    }
+    .stem:nth-child(1){left:20px;top:70px;transform:rotate(-12deg)}
+    .stem:nth-child(2){left:48px;top:34px;transform:rotate(-8deg)}
+    .stem:nth-child(3){left:92px;top:22px;transform:rotate(-3deg)}
+    .stem:nth-child(4){left:137px;top:35px;transform:rotate(4deg)}
+    .stem:nth-child(5){left:174px;top:72px;transform:rotate(11deg)}
+    .stem:nth-child(6){left:40px;top:93px;transform:rotate(-8deg)}
+    .stem:nth-child(7){left:85px;top:72px;transform:rotate(-2deg)}
+    .stem:nth-child(8){left:130px;top:86px;transform:rotate(5deg)}
+    .stem:nth-child(9){left:65px;top:122px;transform:rotate(-4deg)}
+    .stem:nth-child(10){left:110px;top:120px;transform:rotate(2deg)}
+    .stem:nth-child(11){left:155px;top:116px;transform:rotate(8deg)}
+    .stem:nth-child(12){left:19px;top:114px;transform:rotate(-13deg)}
+    .wrap {
+      position: absolute;
+      z-index: 4;
+      bottom: 0;
+      left: 0;
+      width: 220px;
+      height: 155px;
+      background: linear-gradient(135deg, #d7ae78, #b9854d 52%, #e1bc87);
+      clip-path: polygon(0 0, 50% 25%, 100% 0, 76% 100%, 24% 100%);
+      filter: drop-shadow(0 6px 5px #70455433);
+    }
+    .wrap::after {
+      content: "";
+      position: absolute;
+      inset: 7px 6px 6px;
+      background: repeating-linear-gradient(18deg, #ffefcb73 0 3px, transparent 3px 12px), #c99a62;
+      clip-path: polygon(0 0, 50% 35%, 100% 0, 76% 100%, 24% 100%);
+      opacity: .72;
+    }
+    .ribbon {
+      position: absolute;
+      z-index: 6;
+      bottom: 40px;
+      left: 74px;
+      width: 72px;
+      height: 11px;
+      background: #8a5b32;
+      border-radius: 16px;
+      transform: rotate(-5deg);
+    }
+    .ribbon::before, .ribbon::after {
+      content: "";
+      position: absolute;
+      top: -16px;
+      width: 28px;
+      height: 27px;
+      border: 6px solid #8a5b32;
+      border-radius: 50%;
+    }
+    .ribbon::before { left: 5px; transform: rotate(-30deg); }
+    .ribbon::after { right: 5px; transform: rotate(30deg); }
+    .note {
+      position: absolute;
+      z-index: 4;
+      right: -10px;
+      bottom: 60px;
+      padding: 8px 11px;
+      border-radius: 4px;
+      background: #fffdf8;
+      box-shadow: 0 4px 10px #44283e25;
+      transform: rotate(9deg);
+      font-weight: 700;
+      font-size: 14px;
+      color: #44283e;
+      white-space: nowrap;
+    }
+    .player {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      margin-top: 10px;
+    }
+    .turntable {
+      position: relative;
+      width: min(100%, 220px);
+      aspect-ratio: 1;
+      border-radius: 20px;
+      background: linear-gradient(140deg, #ad7480, #5b344c);
+      box-shadow: inset 0 0 0 7px #d7a8a7, 0 15px 25px #44283e25;
+      display: grid;
+      place-items: center;
+    }
+    .record {
+      width: 76%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: repeating-radial-gradient(circle, #302832 0 2px, #1d1a25 3px 5px, #37303a 6px 7px);
+      box-shadow: 0 4px 10px #23192660;
+      display: grid;
+      place-items: center;
+    }
+    .record.playing {
+      animation: spin 2.8s linear infinite;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    .record-center {
+      width: 30%;
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #d98092;
+      border: 4px solid #f3c9bb;
+      color: #6c3047;
+      font-weight: bold;
+      font-size: 20px;
+    }
+    .tonearm {
+      position: absolute;
+      width: 6px;
+      height: 40%;
+      top: 12%;
+      right: 15%;
+      border-radius: 6px;
+      background: #f5d9c3;
+      transform-origin: top;
+      transform: rotate(26deg);
+    }
+    .tonearm::before {
+      content: "";
+      position: absolute;
+      top: -8px;
+      left: -7px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #eec7ac;
+    }
+    .song-title {
+      font-weight: 700;
+      font-size: clamp(16px, 2.2vw, 18px);
+      color: var(--deep);
+      margin-bottom: 6px;
+    }
+    .lyrics-box {
+      background: #fff7f4;
+      border: 1px dashed #cfabb7;
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin-bottom: 14px;
+      font-size: clamp(13px, 1.8vw, 15px);
+      line-height: 1.6;
+      color: #66515d;
+      font-family: "Noto Sans Thai", sans-serif;
+    }
+    .dialog-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 20;
+      display: grid;
+      place-items: center;
+      padding: 16px;
+      background: #271727bd;
+    }
+    .dialog-backdrop:not([hidden]) {
+      animation: arrive .3s ease both;
+    }
+    .letter {
+      position: relative;
+      width: min(100%, 650px);
+      max-height: 88vh;
+      overflow-y: auto;
+      border-radius: 24px;
+      padding: clamp(20px, 4vw, 36px);
+      background: #fffaf6;
+      box-shadow: 0 20px 60px #20111f44;
+      text-align: center;
+    }
+    .icon-close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      border: 0;
+      background: #f9e8eb;
+      color: #76334e;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      font-size: 20px;
+      line-height: 1;
+    }
+    .letter-message {
+      font-family: "Noto Sans Thai", sans-serif;
+      line-height: 1.9;
+      font-size: clamp(14px, 2vw, 17px);
+      color: #574250;
+      margin: 0 auto 20px;
+      text-align: left;
+      overflow-wrap: anywhere;
+    }
+
+    /* Polaroid Photo Gallery Styles inside Letter */
+    .polaroid-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+      margin: 20px 0;
+    }
+    .polaroid {
+      background: #fff;
+      padding: 10px 10px 25px 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+      border-radius: 4px;
+      width: 110px;
+      transition: transform 0.3s ease;
+    }
+    .polaroid:nth-child(1) { transform: rotate(-4deg); }
+    .polaroid:nth-child(2) { transform: rotate(3deg); }
+    .polaroid:nth-child(3) { transform: rotate(-2deg); }
+    .polaroid:nth-child(4) { transform: rotate(5deg); }
+    .polaroid:hover {
+      transform: scale(1.08) rotate(0deg) !important;
+      z-index: 10;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.2);
+    }
+    .polaroid img {
+      width: 100%;
+      height: 110px;
+      object-fit: cover;
+      display: block;
+      border-radius: 2px;
+    }
+    .polaroid span {
+      display: block;
+      margin-top: 6px;
+      font-size: 11px;
+      color: var(--muted);
+      font-family: "Noto Sans Thai", sans-serif;
+    }
+    
+    /* Desktop Layout Enhancements for Music Player */
+    @media(min-width: 768px) {
+      .player {
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        align-items: center;
+        gap: 32px;
+        text-align: left;
+      }
+      .turntable {
+        width: 100%;
+        max-width: none;
+      }
+      .polaroid {
+        width: 125px;
+      }
+      .polaroid img {
+        height: 125px;
+      }
+    }
+
+    /* 3D Balloon Custom Effect - Large Size */
+    .effects {
+      position: fixed;
+      z-index: 30;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .balloon-3d {
+      position: absolute;
+      bottom: -130px;
+      left: var(--x);
+      width: var(--size);
+      height: calc(var(--size) * 1.25);
+      border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+      background: radial-gradient(circle at 35% 30%, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.2) 22%, transparent 52%), var(--b-color);
+      box-shadow: inset -12px -14px 24px rgba(0,0,0,0.2), 0 14px 28px rgba(0,0,0,0.18);
+      animation: float-balloon 4.2s ease-out forwards;
+      animation-delay: var(--delay);
+    }
+    .balloon-3d::before {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      left: calc(50% - 6px);
+      width: 12px;
+      height: 9px;
+      background: var(--b-color);
+      clip-path: polygon(20% 0, 80% 0, 100% 100%, 0 100%);
+    }
+    .balloon-3d::after {
+      content: "";
+      position: absolute;
+      bottom: -32px;
+      left: calc(50% - 0.5px);
+      width: 1px;
+      height: 26px;
+      background: rgba(120, 90, 100, 0.45);
+    }
+    @keyframes float-balloon {
+      0% { transform: translate(0, 0) scale(0.2) rotate(0deg); opacity: 0; }
+      15% { opacity: 1; }
+      100% { transform: translate(var(--dx), -135vh) scale(1.1) rotate(18deg); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <div class="shell-inner">
+      <header id="home" class="screen">
+        <div class="card">
+          <span class="eyebrow">4 Tongkla ♥️</span>
+          <h1>6m w/ u &lt;3</h1>
+          <p class="subtitle">A little surprise, just 4 u eiei :P</p>
+          <div class="choices">
+            <div class="choice">
+              <div class="choice-art" aria-hidden="true">
+                <div class="envelope"><span class="seal">♥</span></div>
+              </div>
+              <button id="open-letter" class="button primary" type="button">Open the Letter</button>
+            </div>
+            <div class="choice">
+              <div class="choice-art" aria-hidden="true">
+                <div class="present"><div class="bow"></div></div>
+              </div>
+              <button id="open-gift" class="button primary" type="button">Open the Gift</button>
+            </div>
+          </div>
+          <p class="hint">Choose whichever you want to open first.</p>
+        </div>
+      </header>
+
+      <main>
+        <section id="gift-screen" class="screen" hidden>
+          <div class="card">
+            <span class="eyebrow">Surprise, surprise!</span>
+            <h2>A bouquet 4 u !</h2>
+            <div class="gift-stage" role="img">
+              <div class="gift-base"></div>
+              <div class="bouquet">
+                <div class="rose-cluster" aria-hidden="true">
+                  <span class="rose"></span><span class="rose"></span><span class="rose"></span><span class="rose"></span><span class="rose"></span><span class="rose"></span><span class="rose"></span><span class="rose"></span><span class="rose"></span><span class="rose"></span><span class="rose"></span><span class="rose"></span>
+                </div>
+                <div class="stems" aria-hidden="true">
+                  <span class="stem"></span><span class="stem"></span><span class="stem"></span><span class="stem"></span><span class="stem"></span><span class="stem"></span><span class="stem"></span><span class="stem"></span><span class="stem"></span><span class="stem"></span><span class="stem"></span><span class="stem"></span>
+                </div>
+                <div class="wrap"></div>
+                <div class="ribbon"></div>
+                <div class="note">4 Tongkla♥️</div>
+              </div>
+            </div>
+            <p class="subtitle">Gift 4 ตองกล้าลิงอุดร🤗🤗</p>
+            <div class="actions">
+              <button id="gift-home" class="button secondary" type="button">Back to Home</button>
+              <button id="gift-to-letter" class="button secondary" type="button">a letter 4 u 😛</button>
+              <button id="to-music" class="button primary" type="button">secret🤫🤫</button>
+            </div>
+          </div>
+        </section>
+
+        <section id="music-screen" class="screen" hidden>
+          <div class="card">
+            <div class="player">
+              <div class="turntable" role="img">
+                <div id="record" class="record">
+                  <div class="record-center">♥</div>
+                </div>
+                <div class="tonearm"></div>
+              </div>
+              <div>
+                <div class="song-title">🎶 Oasis - อะตอม ชนกันต์</div>
+                <div class="lyrics-box">
+                  "เธอคือคนที่ฉันรอได้มาเจอ<br>
+                  คนเดียวที่ทำให้รู้สึกว่ารัก มันดีอย่างนี้เอง<br>
+                  เธอคือ Oasis กลางทะเลทราย ทำให้หัวใจมีเสียงเพลง<br>
+                  และฉันรักเธอ Oh my baby..."
+                </div>
+                <div>
+                  <button id="play-toggle" class="button primary" type="button">
+                    <span id="play-label">▶ play</span>
+                    <span id="pause-label" hidden>Ⅱ pause</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="actions">
+              <button id="music-home" class="button secondary" type="button">Back to Home</button>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <div id="letter-backdrop" class="dialog-backdrop" hidden>
+    <section class="letter" role="dialog">
+      <button id="close-letter" class="icon-close" type="button">×</button>
+      <h2>2 ma luv :P</h2>
+      
+      <!-- Embedded Base64 Polaroid Photo Gallery -->
+      <div class="polaroid-container">
+        <div class="polaroid">
+          <img id="img1" alt="Memory 1">
+          <span>#1 &lt;3</span>
+        </div>
+        <div class="polaroid">
+          <img id="img2" alt="Memory 2">
+          <span>#2 &lt;3</span>
+        </div>
+        <div class="polaroid">
+          <img id="img3" alt="Memory 3">
+          <span>#3 &lt;3</span>
+        </div>
+        <div class="polaroid">
+          <img id="img4" alt="Memory 4">
+          <span>#4 &lt;3</span>
+        </div>
+      </div>
+
+      <p id="letter-message" class="letter-message">สุขสันต์วันครบรอบ6เดือนน้าา เวลาแอบเร็วมากๆ แปปๆครึ่งปีแล้ว🫪🫪 เค้ารักเธอมากๆนะ ขอโทษที่บางทีงี่เง่าไปหน่อย แต่เค้าไม่อยากให้เธอไปไหนเลยนะ อยู่ด้วยกันก่อนน😭😭😭 มีไรก็พูดกันตรงๆนะ เค้ารักเธอที่สุด ถึงไม่ค่อยบอกรักแต่รักทุกวันนะ😛😛</p>
+      <div class="actions">
+        <button id="letter-to-gift" class="button secondary" type="button">Gift 4 u 😛</button>
+      </div>
+    </section>
+  </div>
+
+  <div id="effects" class="effects" aria-hidden="true"></div>
+
+  <!-- YouTube API for Embedded Player -->
+  <div style="display:none;">
+    <div id="yt-player"></div>
+  </div>
+
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script>
+    // Load Images Directly as Base64 to avoid broken links
+    document.addEventListener('DOMContentLoaded', function() {
+      // Image 1
+      fetch('data:image/jpeg;base64,...').then(() => {
+        // Fallback for image loading inside preview editors
+      });
+    });
+
+    var player;
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('yt-player', {
+        height: '0',
+        width: '0',
+        videoId: 'rPZIiRQNXjk',
+        playerVars: {
+          'playsinline': 1,
+          'controls': 0,
+          'start': 78
+        }
+      });
+    }
+
+    (function() {
+      var home = document.getElementById('home');
+      var gift = document.getElementById('gift-screen');
+      var music = document.getElementById('music-screen');
+      var backdrop = document.getElementById('letter-backdrop');
+      var letterToGiftBtn = document.getElementById('letter-to-gift');
+      var effects = document.getElementById('effects');
+      var record = document.getElementById('record');
+      var toggle = document.getElementById('play-toggle');
+      var playLabel = document.getElementById('play-label');
+      var pauseLabel = document.getElementById('pause-label');
+      var isPlaying = false;
+      var burstTimer;
+
+      function setPlaying(playing) {
+        isPlaying = playing;
+        record.classList.toggle('playing', playing);
+        playLabel.hidden = playing;
+        pauseLabel.hidden = !playing;
+
+        if (player && typeof player.playVideo === 'function') {
+          if (playing) {
+            player.seekTo(78);
+            player.playVideo();
+          } else {
+            player.pauseVideo();
+          }
+        }
+      }
+
+      function showScreen(screen) {
+        home.hidden = (screen !== home);
+        gift.hidden = (screen !== gift);
+        music.hidden = (screen !== music);
+        if (screen !== music) setPlaying(false);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      function burstBalloons() {
+        clearTimeout(burstTimer);
+        effects.replaceChildren();
+        var colors = ['#e85b83', '#ff8fab', '#ffb5a7', '#ffcdb2', '#b5e2fa', '#d8bbff', '#ff99c8', '#a3c4f3'];
+        for (var i = 0; i < 28; i++) {
+          var balloon = document.createElement('span');
+          balloon.className = 'balloon-3d';
+          balloon.style.setProperty('--x', Math.random() * 100 + '%');
+          balloon.style.setProperty('--dx', (Math.random() - .5) * 220 + 'px');
+          balloon.style.setProperty('--size', (65 + Math.random() * 40) + 'px');
+          balloon.style.setProperty('--delay', Math.random() * .35 + 's');
+          balloon.style.setProperty('--b-color', colors[i % colors.length]);
+          effects.appendChild(balloon);
+        }
+        burstTimer = setTimeout(function() { effects.replaceChildren(); }, 4200);
+      }
+
+      function openLetterModal() {
+        letterToGiftBtn.hidden = !gift.hidden;
+        backdrop.hidden = false;
+        document.body.style.overflow = 'hidden';
+        burstBalloons();
+      }
+
+      function closeLetter() {
+        if (backdrop.hidden) return;
+        backdrop.hidden = true;
+        document.body.style.overflow = '';
+      }
+
+      document.getElementById('open-letter').addEventListener('click', openLetterModal);
+      document.getElementById('close-letter').addEventListener('click', closeLetter);
+      letterToGiftBtn.addEventListener('click', function() {
+        closeLetter();
+        showScreen(gift);
+        burstBalloons();
+      });
+
+      document.getElementById('open-gift').addEventListener('click', function() {
+        showScreen(gift);
+        burstBalloons();
+      });
+      document.getElementById('gift-home').addEventListener('click', function() { showScreen(home); });
+      document.getElementById('gift-to-letter').addEventListener('click', openLetterModal);
+      document.getElementById('to-music').addEventListener('click', function() { 
+        showScreen(music); 
+        burstBalloons();
+      });
+      document.getElementById('music-home').addEventListener('click', function() { showScreen(home); });
+
+      toggle.addEventListener('click', function() {
+        setPlaying(!isPlaying);
+        if (!isPlaying) burstBalloons();
+      });
+    })();
+  </script>
+</body>
+</html>
